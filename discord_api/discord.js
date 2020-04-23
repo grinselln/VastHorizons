@@ -42,13 +42,14 @@ router.get('/callback', catchAsync(async (req, res) => {
   });
 
   const userJson = await user.json();
+  const discordID = userJson.id;
 
-  db.User.exists({ discord_id: userJson.id })
+  db.User.exists({ discord_id: discordID })
   .then(function(doesExist){
     if(doesExist == false){  //create entry
       //add to db
       const user = {
-        discord_id: userJson.id,
+        discord_id: discordID,
         username: json2.username,
         discriminator: json2.discriminator,
         verified: 0,
@@ -57,12 +58,9 @@ router.get('/callback', catchAsync(async (req, res) => {
       
       db.User.create(user)
       .then(function(newUser){
-          req.session.userDetails = {
-            user_id: newUser.discord_id,
-            username: newUser.username,
-            discriminator: newUser.discriminator
-          };
-          res.redirect('/');
+        req.session.userID = newUser.discord_id;
+        req.session.username = newUser.username + "#" + newUser.discriminator;
+        res.redirect('/');
       })
       .catch(function(err){
           res.send(err);
@@ -71,11 +69,8 @@ router.get('/callback', catchAsync(async (req, res) => {
     else{
       db.User.find({"discord_id": discordID})
         .then(function(foundUser){
-          req.session.userDetails = {
-              user_id: foundUser[0].discord_id,
-              username: foundUser[0].username,
-              discriminator: foundUser[0].discriminator
-          }
+          req.session.userID = foundUser[0].discord_id;
+          req.session.username = foundUser[0].username + "#" + foundUser[0].discriminator;
           res.redirect('/');
         })
         .catch(function(err){

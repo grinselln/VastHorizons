@@ -22,18 +22,24 @@ app.use(express.static(__dirname + '/views'));
 // Routes
 app.get('/', (req, res) => {
   
-  if(!req.session.userDetails){
-    req.session.userDetails = {
-      user_id: 0,
-      username: "",
-      discriminator: 0
-    };
+  if(!req.session.userID){
+    req.session.userID = "";
+    req.session.username = "";
   }
 
-  console.log("Login Sess: ", req.session.userDetails);
-  
-  res.render("index.ejs", {user: req.session.userDetails});
+  console.log("userID: ", req.session.userID);
+  console.log("username: ", req.session.username);
+  res.render("index.ejs", {user_id: req.session.userID, username: req.session.username});
 });
+
+app.use(function(req, res, next) {
+  if (!req.session.userID ) {  
+        return res.redirect('/');
+      }   
+      else {
+          next();
+      }
+  });
 
 app.get('/logout', (req, res) => {
   req.session.destroy();
