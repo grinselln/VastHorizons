@@ -1,3 +1,10 @@
+/*   ALERTS   */
 .alert.hide{
     display: none;
+}
+
+/*   DROPDOWN MENUS   */
+.dropdown-menu{
+    right: 0;
+    left: initial;
 }
