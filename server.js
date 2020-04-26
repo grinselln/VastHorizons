@@ -47,6 +47,11 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+//404 Route
+app.get('*', function(req, res){
+  res.status(404).render('404.ejs');
+});
+
 function isAuthenticated(req, res, next){
   // do any checks you want to in here
 
