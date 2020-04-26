@@ -43,15 +43,15 @@ router.get('/callback', catchAsync(async (req, res) => {
 
   const userJson = await user.json();
   const discordID = userJson.id;
-
+  
   db.User.exists({ discord_id: discordID })
   .then(function(foundUser){
     if(foundUser == false){  //create entry
       //add to db
       const user = {
         discord_id: discordID,
-        username: json2.username,
-        discriminator: json2.discriminator,
+        username: userJson.username,
+        discriminator: userJson.discriminator,
         verified: 0,
         email: "",
       }
