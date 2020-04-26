@@ -1,0 +1,36 @@
+<p>Welcome!  Next, we need to set up your island info.</p>
+<p>This information will help other players recognize you when visiting each other.</p>
+<p>It is important this is accurate to avoid any flags against your account.</p>
+<p>All fields are required.</p>
+<hr>
+
+<form form onsubmit="return false;">
+<div class="form-group">
+    <label for="islandName">Island Name</label>
+    <input type="text" class="form-control" id="islandName" name="islandName" placeholder="Your Island's Name">
+</div>
+<div class="form-group">
+    <label for="villagerName">Villager Name</label>
+    <input type="text" class="form-control" id="villagerName" name="villagerName" placeholder="Your Villager's Name">
+</div>
+<div class="form-group">
+    <label for="nativeFruit">Native Fruit</label>
+    <select class="form-control" name="nativeFruit" id="nativeFruit">
+        <option>--Select a Fruit--</option>
+        <option value="apples">Apples</option>
+        <option value="cherries">Cherries</option>
+        <option value="oranges">Oranges</option>
+        <option value="peaches">Peaches</option>
+        <option value="pears">Pears</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="islandHemisphere">Hemisphere</label>
+    <select class="form-control" name="islandHemisphere" id="islandHemisphere">
+        <option>--Select a Hemisphere--</option>
+        <option value="north">North</option>
+        <option value="south">South</option>
+    </select>
+</div>
+<button id="newIsland" class="btn btn-primary" disabled>Save My Island</button>
+</form>

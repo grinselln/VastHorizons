@@ -45,8 +45,8 @@ router.get('/callback', catchAsync(async (req, res) => {
   const discordID = userJson.id;
 
   db.User.exists({ discord_id: discordID })
-  .then(function(doesExist){
-    if(doesExist == false){  //create entry
+  .then(function(foundUser){
+    if(foundUser == false){  //create entry
       //add to db
       const user = {
         discord_id: discordID,
@@ -60,7 +60,8 @@ router.get('/callback', catchAsync(async (req, res) => {
       .then(function(newUser){
         req.session.userID = newUser.discord_id;
         req.session.username = newUser.username + "#" + newUser.discriminator;
-        res.redirect('/');
+        req.session.hasIsland = 0;
+        res.redirect('/island');
       })
       .catch(function(err){
           res.send(err);
@@ -69,9 +70,26 @@ router.get('/callback', catchAsync(async (req, res) => {
     else{
       db.User.find({"discord_id": discordID})
         .then(function(foundUser){
+          console.log("found user");
           req.session.userID = foundUser[0].discord_id;
           req.session.username = foundUser[0].username + "#" + foundUser[0].discriminator;
-          res.redirect('/');
+          
+          db.Island.exists({ discord_id: discordID })
+            .then(function(foundIsland){
+              if(foundIsland){
+                console.log("found: ", foundIsland);
+                req.session.hasIsland = 1;
+                res.redirect('/');
+              }
+              else{
+                console.log("not found: ", foundIsland);
+                req.session.hasIsland = 0;
+                res.redirect('/island');
+              }
+            })
+            .catch(function(err){
+              res.send(err);
+            })
         })
         .catch(function(err){
             res.send(err);
