@@ -10,17 +10,17 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hosted Islands
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/hostedIslands"><i class="fas fa-th"></i> All Islands</a>
+          <a class="dropdown-item" href="/hostedIslands/diy"><i class="fas fa-hammer"></i> Villagers Crafting (DIYs)</a>
+          <a class="dropdown-item" href="/hostIsland"><i class="fas fa-house-user"></i> Host Your Island</a>
+        </div>
+      </li>
       <% if(!user_id){ %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Hosted Islands
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/hostedIslands"><i class="fas fa-th"></i> All Islands</a>
-            <a class="dropdown-item" href="/hostedIslands/diy"><i class="fas fa-hammer"></i> Villagers Crafting (DIYs)</a>
-            <a class="dropdown-item" href="/hostIsland"><i class="fas fa-house-user"></i> Host Your Island</a>
-          </div>
-        </li>
         <li class="nav-item active">
           <a class="nav-link" href="/api/discord/login">Login Using Discord</a>
         </li>

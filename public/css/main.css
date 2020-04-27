@@ -9,6 +9,48 @@
     left: initial;
 }
 
+/*   HINTS   */
+.inputHint span{
+    display: none;
+    background-color: #e6e6e6;
+    padding: 3px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    margin-top: -40px;
+    margin-left: -18px;
+}
+
+.inputHint span:after {
+    font-family: "FontAwesome";
+    content: "\f0d7";
+    position: absolute;
+    top: 19px;
+    left: 4px;
+    color: #e6e6e6;
+    font-size: 15pt;
+}
+
+.inputHint:hover > span{
+    display: initial;
+}
+
+/*   INPUTS   */
+.vh-inlineCheckboxes{
+    width: 100%;
+}
+
+.hostIslandSteps:nth-child(n+2){
+    display: none;
+}
+
+.vh-labelInlineRadio{
+    margin-right: 20px;
+}
+
+.hostOptionDetails{ /*conditional form areas*/
+    display: none;
+}
+
 /*   FOOTER   */
 footer{
     background-color: #4e5257;
