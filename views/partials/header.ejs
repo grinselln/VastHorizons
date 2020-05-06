@@ -17,7 +17,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/hostedIslands"><i class="fas fa-th"></i> All Islands</a>
           <a class="dropdown-item" href="/hostedIslands/diy"><i class="fas fa-hammer"></i> Villagers Crafting (DIYs)</a>
-          <a class="dropdown-item" href="/hostIsland"><i class="fas fa-house-user"></i> Host Your Island</a>
+          <% if(user_id){ %>
+            <a class="dropdown-item" href="/hostIsland"><i class="fas fa-house-user"></i> Host Your Island</a>
+          <% } %>
         </div>
       </li>
       <% if(!user_id){ %>
