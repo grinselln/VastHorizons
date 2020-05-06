@@ -15,7 +15,8 @@ app.use(session({
 }));
 app.use(methodOverride('_method'))
 app.use('/api/discord', require('./discord_api/discord'));
-app.use('/api/island', require('./routes/island')); 
+app.use('/api/island', require('./routes/island'));
+app.use('/api/hostIsland', require('./routes/hostIsland'));  
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname + '/views'));
 
