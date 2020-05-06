@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const session = require('express-session');
-var db = require("../../models");
-var helpers = require("../../helpers/island/island"); 
+var db = require("../models");
+var helpers = require("../helpers/island"); 
 
  router.route('/')
  .get(helpers.getIsland)

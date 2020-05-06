@@ -19,8 +19,9 @@ function displayWarningAlert(message){
     $(".alert").removeClass('alert-success');
 
     $(".alert").addClass('alert-warning');
-    
+
     $("#alertMessage").text(message);
+
     $(".alert").show();
 }
 

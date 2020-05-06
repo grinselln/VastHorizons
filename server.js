@@ -15,8 +15,7 @@ app.use(session({
 }));
 app.use(methodOverride('_method'))
 app.use('/api/discord', require('./discord_api/discord'));
-app.use('/api/island', require('./routes/island/island')); 
-app.use('/api/hostedIsland', require('./routes/hostedIsland/hostedIsland')); 
+app.use('/api/island', require('./routes/island')); 
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname + '/views'));
 
@@ -55,16 +54,14 @@ app.get('*', function(req, res){
 });
 
 function isAuthenticated(req, res, next){
-  // do any checks you want to in here
-
-  // CHECK THE USER STORED IN SESSION FOR A CUSTOM VARIABLE
-  // you can do this however you want with whatever variables you set up
+  // if a user and has island, continue as normal
+  // if a user but did not register an island, force island creation
   if(req.session.userID && req.session.hasIsland)
     return next();
   else if (req.session.userID && !req.session.hasIsland)
     return res.redirect("/userIsland"); 
 
-  // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
+  // if not a user, do not allow them on this page
   res.redirect('/');
 }
 

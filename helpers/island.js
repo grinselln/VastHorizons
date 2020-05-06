@@ -1,4 +1,5 @@
-var db = require('../../models');
+var db = require('../models');
+var validation = require("../functions/fieldValidation");
 
 exports.getIsland = function(req, res){
     if(req.session.hasIsland == 1){
@@ -29,7 +30,7 @@ exports.getIsland = function(req, res){
 exports.createIsland = function(req, res){
     var result;
     var validationResult = validateIslandData(req, res);
-
+    console.log(req.body);
     if(validationResult.success == 0){
         res.status(200).json(validationResult);
     }else{
@@ -58,20 +59,20 @@ exports.createIsland = function(req, res){
             res.status(200).json(result);
         })
     }
-  }
+}
 
-  exports.updateIsland = function(req, res){
-    var result;
-    var validationResult = validateIslandData(req, res);
+exports.updateIsland = function(req, res){
+    var validationResult = validation.validateFormData(req.body);
+
     if(validationResult.success == 0){
         res.status(200).json(validationResult);
     }else{
         const userChangedIslandData = {
             discord_id: req.session.userID,
-            name: req.body.islandName,
-            villager_name: req.body.villagerName,
-            native_fruit: req.body.nativeFruit,
-            hemisphere: req.body.islandHemisphere
+            name: req.body[0].value,
+            villager_name: req.body[1].value,
+            native_fruit: req.body[2].value,
+            hemisphere: req.body[3].value
         }
         
         db.Island.findOneAndUpdate({discord_id: req.session.userID}, userChangedIslandData, {new: true})
@@ -90,44 +91,6 @@ exports.createIsland = function(req, res){
             res.status(200).json(result);
         }) 
     }
-  }
-
-  function validateIslandData(req, res){
-    const acceptedFruits = ["apples", "cherries", "oranges", "peaches", "pears"];
-    const acceptedHemispheres = ["north", "south"];
-    var result;
-
-    if(req.body.islandName.length > 10 || req.body.villagerName > 10){
-        result = {
-            success: 0,
-            message: "Island and Villager names cannot be greater than 10 characters. Island was not updated."
-        };
-    }
-    else if(req.body.islandName.length == 0 || req.body.villagerName == 0){
-        result = {
-            success: 0,
-            message: "Island and Villager names cannot be blank. Island was not updated."
-        };
-    }
-    else if(!acceptedFruits.includes(req.body.nativeFruit)){
-        result = {
-            success: 0,
-            message: "Only Apples, Cherries, Oranges, Peaches, and Pears are accepted fruits.  Island fruit cannot be blank. Island was not updated."
-        };
-    }
-    else if(!acceptedHemispheres.includes(req.body.islandHemisphere)){
-        result = {
-            success: 0,
-            message: "Only North and South are accepted hemispheres.  Hemisphere cannot be blank. Island was not updated."
-        };
-    }
-    else{
-        result = {
-            success: 1
-        }
-    }
-
-    return result;
-  }
+}
 
   module.exports = exports;

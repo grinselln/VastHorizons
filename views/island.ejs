@@ -21,17 +21,13 @@
                       <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div id="islandForm">
+                <div id="island_form">
                   <% if(!user_id) { %>
                     <%- include('partials/island/noIsland') %>
                   <% }
-                  else if(hasIsland) { %>
-                    <%- include('partials/island/updateIsland') %>
-                  <% }
-                  else { %> 
-                    <%- include('partials/island/createIsland') %>
+                  else { %>
+                    <%- include('partials/island/islandForm') %>
                   <% } %>
-  
                 </div>
               </div>
             </div>
@@ -40,6 +36,7 @@
       </div>
     </div>
     <%- include('partials/scripts') %>
+    <script src="js/form.js"></script>
     <script src="js/island.js"></script>
   </body>
 </html>

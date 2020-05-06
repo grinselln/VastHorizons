@@ -1,0 +1,48 @@
+<% if(hasIsland) { %>
+    <p>Below are you island details.  You can update them as necessary.</p>     
+    <hr />             
+<% }
+else { %> 
+    <p>Welcome!  Next, we need to set up your island info.</p>
+    <p>This information will help other players recognize you when visiting each other.</p>
+    <p>It is important this is accurate to avoid any flags against your account.</p>
+    <p>All fields are required.</p>
+    <hr>
+<% } %>
+
+<form onsubmit="return false;">
+    <div class="form-group">
+        <label for="island_name">Island Name</label>
+        <input type="text" class="form-control" id="island_name" name="island_name" data-validation="99">
+    </div>
+    <div class="form-group">
+        <label for="villager_name">Villager Name</label>
+        <input type="text" class="form-control" id="villager_name" name="villager_name" data-validation="99">
+    </div>
+    <div class="form-group">
+        <label for="native_fruit">Native Fruit</label>
+        <select class="form-control" name="native_fruit" id="native_fruit" data-validation="99.1">
+        <option></option>
+        <option value="apples">Apples</option>
+        <option value="cherries">Cherries</option>
+        <option value="oranges">Oranges</option>
+        <option value="peaches">Peaches</option>
+        <option value="pears">Pears</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="island_hemisphere">Hemisphere</label>
+        <select class="form-control" name="island_hemisphere" id="island_hemisphere" data-validation="99.2">
+        <option></option>
+        <option value="north">North</option>
+        <option value="south">South</option>
+        </select>
+    </div>
+
+    <% if(hasIsland) { %>
+        <button id="update_island" class="btn btn-primary">Update My Island</button>            
+    <% }
+    else { %> 
+        <button id="new_island" class="btn btn-primary" disabled>Create My Island</button>
+    <% } %>   
+</form>

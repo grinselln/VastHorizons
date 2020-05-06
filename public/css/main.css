@@ -16,16 +16,17 @@
     padding: 3px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    margin-top: -40px;
-    margin-left: -18px;
+    margin-top: 2px;
+    margin-left: 13px;
+    font-size: 9pt;
 }
 
 .inputHint span:after {
     font-family: "FontAwesome";
-    content: "\f0d7";
+    content: "\f0d9";
     position: absolute;
-    top: 19px;
-    left: 4px;
+    top: -3px;
+    left: -7px;
     color: #e6e6e6;
     font-size: 15pt;
 }
@@ -47,7 +48,7 @@
     margin-right: 20px;
 }
 
-.hostOptionDetails{ /*conditional form areas*/
+.hostOptionDetails ~ .hostOptionDetails{ /*conditional form areas*/
     display: none;
 }
 
