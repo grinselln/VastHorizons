@@ -36,10 +36,10 @@ exports.createIsland = function(req, res){
     }else{
         const newIslandData = {
             discord_id: req.session.userID,
-            name: req.body.islandName,
-            villager_name: req.body.villagerName,
-            native_fruit: req.body.nativeFruit,
-            hemisphere: req.body.islandHemisphere
+            name: req.body[0].value,
+            villager_name: req.body[1].value,
+            native_fruit: req.body[2].value,
+            hemisphere: req.body[3].value
         }
     
         db.Island.create(newIslandData)
