@@ -1,5 +1,28 @@
-function pullFormData(){
-    const formInputs = $("input, select");
+function pullFormData(ignoredFields){
+    var formInputs = $("input, select");
+    var ignoredFieldsIds = [];
+
+    if(ignoredFields){
+        for(var i = 0; i < ignoredFields.length; i++){
+            for(var j = 0; j < $(ignoredFields[i]).length; j++){
+                ignoredFieldsIds.push($(ignoredFields[i])[j].id);
+            }
+        }
+
+        var i = 0;
+        var formField;
+        while (i < formInputs.length) {
+            formField = formInputs[i];
+            if (ignoredFieldsIds.some(function(ignoredField) { return formField.id === ignoredField; })) {
+                // found duplicate, remove
+                formInputs.splice(i, 1);
+            } else {
+                // no match, progress to next
+                ++i;
+            }
+        }
+    }
+
     var inputArray = [];
 
     //split name into something readable for the user, testName would equal Test Name
@@ -30,7 +53,6 @@ function pullFormData(){
     
     //create object for passing to backend
     inputArray = Object.assign({}, inputArray);
-    console.log(inputArray);
     return inputArray;
 }
 
