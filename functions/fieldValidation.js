@@ -1,10 +1,9 @@
 module.exports = {
     validateFormData: function (formObj) {
         var results;
-        
         //run through object and test only needed fields
         for (var key of Object.keys(formObj)) {
-            if(formObj[key].validation != false){ //this skips checks for radio buttons or other non validated fields
+            if(formObj[key].validation != "false"){ //this skips checks for radio buttons or other non validated fields
                 results = validateField(formObj[key].value, formObj[key].validation);
                 
                 if(results.success == 0){
@@ -66,7 +65,7 @@ function validateField(fieldValue, checkType) {
             break;
         case "4.2":   //numbers/letters/symbols/spaces
             RegExpresion = /^[a-zA-Z0-9 ',.-]+$/;
-            alertMessage = "Please leave blank or only use lowercase letters, capital letters, numbers, spaces and the symbols , . ' - ";
+            alertMessage = "Please only use lowercase letters, capital letters, numbers, spaces and the symbols , . ' - ";
             break;
         case "4.3":   //numbers/letters/symbols/spaces or nothing
             RegExpresion = /^([a-zA-Z0-9 ',.-]+)?$/;

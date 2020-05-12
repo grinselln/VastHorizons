@@ -23,6 +23,7 @@ $(document).ready(function() {
 });
 
 function getIsland(data){
+
   if(data.success == 1){
     $("#island_name").val(data.name);
     $("#villager_name").val(data.villager_name);
@@ -32,7 +33,7 @@ function getIsland(data){
 }
 
 function createIsland(){
-  const formData = pullFormData();
+  const formData = pullFormData(false);
 
   console.log(formData);
 
@@ -57,7 +58,7 @@ function createIsland(){
 }
 
 function updateIsland(){
-  const formData = pullFormData();
+  const formData = pullFormData(false);
 
   const updateURL = '/api/island';
 

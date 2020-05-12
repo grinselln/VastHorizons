@@ -1,5 +1,6 @@
 $(document).ready(function() { 
 
+    //button actions to navigate form
     $(".hostIsland_toStep1").click(function(){
         $(".hostIslandSteps").hide();
         $("#hostIsland_step1").show();
@@ -20,7 +21,8 @@ $(document).ready(function() {
         $("#hostIsland_step4").show();
     });
   
-    $('input[name=hostReason]').on('change', function() {
+    //clear reason sections if a different reason is chosen
+    $('input[name=host_reason]').on('change', function() {
         var hostReason = this.value;
 
         if(hostReason == "diy"){
@@ -41,20 +43,46 @@ $(document).ready(function() {
             $("#hostReasonUniqueVisitor").show();
         }
      });
-    /*$("#updateIsland").click(function(){
+
+     $("input").change(function(){
+         if(this.getAttribute("data-validation")){
+            validateFormData(document.getElementById(this.id).value, this.getAttribute("data-validation"));
+         }
+    });
+
+    $("#createHostIsland").click(function(){
         $(".alert").hide();
-        updateIsland();
+        createHostIsland();
     });
-  
-  
-    $("input").change(function(){
-      validateIslandData(this);
-    });
-  
-    $(document).on('change','select',function(){
-      validateIslandData(this);
   });
-  
-    $.getJSON("/api/island")
-    .then(getIsland)*/
-  });
+
+  function createHostIsland(){
+    //don't include non selected host reason fields in data pull
+    const hostReason = findRadioButtonValue("host_reason");
+    var ignoredFields = [];
+
+    if(hostReason == "diy"){
+        ignoredFields.push("#hostReasonUniqueVisitor input");
+    }
+    else if(hostReason == "uniqueVisitor"){
+        ignoredFields.push("#hostReasonVillagerDiy input");
+    }
+    
+    const formData = pullFormData(ignoredFields);
+    
+    const updateURL = '/api/hostIsland';
+      
+      $.ajax({
+        method: 'POST',
+        url: updateURL,
+        data: formData
+      })
+      .then(function(result){
+        if(result.success == 1){
+            window.location = result.redirect
+        }
+        else if (result.success == 0){
+            displayDangerAlert(result.message);
+        }
+      });
+  }

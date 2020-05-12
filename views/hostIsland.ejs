@@ -31,61 +31,36 @@
                         <div id="hostIsland_step1" class="hostIslandSteps">
                             <h2>Step 1: Host Information</h2>
                             <div class="form-group">
-                                <label for="dodoCode">Dodo Code</label>
-                                <input type="text" class="form-control" id="dodoCode" name="dodoCode" placeholder="Your Island's Dodo Code" data-validation="100">
+                                <label for="dodo_code">Dodo Code</label>
+                                <input type="text" class="form-control" id="dodo_code" name="dodo_code" placeholder="Your Island's Dodo Code" data-validation="100">
                             </div>
                             <div class="form-group">
-                                <label for="hostClothes">What Does Your Villager Look Like</label>
-                                <input type="text" class="form-control" id="hostClothes" name="hostClothes" placeholder="Briefly describe your clothes so visitors can recognize you" data-validation="4.2">
+                                <label for="villager_clothes">What Does Your Villager Look Like</label>
+                                <input type="text" class="form-control" id="villager_clothes" name="villager_clothes" placeholder="Briefly describe your clothes so visitors can recognize you" data-validation="4.2">
                             </div>
                             <div class="form-group">
-                                <label for="maxVisitor">Max Visitors on Your Island at One Time</label>
+                                <label for="max_visitors">Max Visitors on Your Island at One Time</label>
                                 <span class="inputHint">
                                     <i class="fas fa-question-circle"></i>
                                     <span>We recommend 2 - 4 for the sake of time and to prevent crashing. 4 is the default.</span>
                                 </span>
-                                <input type="text" class="form-control" id="maxVisitor" name="maxVisitor" placeholder="4" data-validation="100.1">
+                                <input type="text" class="form-control" id="max_visitors" name="max_visitors" placeholder="4" data-validation="100.1">
                             </div>
                             <div class="form-group">
-                                <label for="maxQueue">Max Island Queue</label>
+                                <label for="max_queue">Max Island Queue</label>
                                 <span class="inputHint">
                                     <i class="fas fa-question-circle"></i>
                                     <span>Put a number you think you can run through in its entirety. 25 is the default.</span>
                                 </span>
-                                <input type="text" class="form-control" id="maxQueue" name="maxQueue" placeholder="25" data-validation="100.2">
+                                <input type="text" class="form-control" id="max_queue" name="max_queue" placeholder="25" data-validation="100.2">
                             </div>
                             <div class="form-group">
-                                <label for="maxQueue">Close Queue After It's Maxed</label>
-                                <span class="inputHint">
-                                    <i class="fas fa-question-circle"></i>
-                                    <span>This will not allow new people to join the queue at any future point once the max is hit.</span>
-                                </span>
-                                <div class="vh-inlineCheckboxes">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="closeQueue" id="closeQueueYes" value="true" checked>
-                                        <label class="form-check-label" for="closeQueue">Yes</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="closeQueue" id="closeQueueNo" value="false">
-                                        <label class="form-check-label" for="closeQueueNo">No</label>
-                                      </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="queueTimeout">Code Timeout (minutes)</label>
+                                <label for="queue_timeout">Queue Timeout (minutes)</label>
                                 <span class="inputHint">
                                     <i class="fas fa-question-circle"></i>
                                     <span>If a user doesn't uncover the Dodo code to your island in this amount of time, they will be kicked from the queue. 5 is the default.</span>
                                 </span>
-                                <input type="text" class="form-control" id="queueTimeout" name="queueTimeout" placeholder="5" data-validation="1.1">
-                            </div>
-                            <div class="form-group">
-                                <label for="visitorTimeLimit">Requested Visitor Time Limit (minutes)</label>
-                                <span class="inputHint">
-                                    <i class="fas fa-question-circle"></i>
-                                    <span>Optional. Let visitors know you'd only like them to stay this long. (approx 10 is avg)</span>
-                                </span>
-                                <input type="text" class="form-control" id="visitorTimelimit" name="visitorTimelimit" placeholder="10" data-validation="1.1">
+                                <input type="text" class="form-control" id="queue_timeout" name="queue_timeout" placeholder="5" data-validation="1.1">
                             </div>
                             <div class="row">
                                 <div class="col text-right">
@@ -97,69 +72,69 @@
                         <div id="hostIsland_step2" class="hostIslandSteps">
                             <h2>Step 2: Host Reason</h2>
                             <div class="form-group">
-                                <label for="hostReason">Host Reason</label>
+                                <label for="host_reason">Host Reason</label>
                                 <span class="inputHint">
                                     <i class="fas fa-question-circle"></i>
                                     <span>Only 1 is supported at the moment.</span>
                                 </span>
                                 <div class="vh-inlineCheckboxes">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="hostReason" id="hostReasonDiy" value="diy" checked>
-                                        <label class="form-check-label" for="hostReasonDiy">Villager Making a DIY</label>
+                                        <input class="form-check-input" type="radio" name="host_reason" id="host_reason_diy" value="diy" checked>
+                                        <label class="form-check-label" for="host_reason_diy">Villager Making a DIY</label>
                                       </div>
                                       <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="hostReason" id="hostReasonVisitor" value="uniqueVisitor">
-                                        <label class="form-check-label" for="hostReasonVisitor">Unique Visitor</label>
+                                        <input class="form-check-input" type="radio" name="host_reason" id="host_reason_visitor" value="uniqueVisitor">
+                                        <label class="form-check-label" for="host_reason_visitor">Unique Visitor</label>
                                       </div>
                                 </div>
                             </div>
                             <div id="hostReasonVillagerDiy" class="hostOptionDetails">
                                 <div class="form-group">
-                                    <label for="diyVillagerName">Which Villager is Making the DIY?</label>
-                                    <input type="text" class="form-control" id="diyVillagerName" name="diyVillagerName" placeholder="Villager's Name" data-validation="2.2">
+                                    <label for="diy_villager_name">Which Villager is Making the DIY?</label>
+                                    <input type="text" class="form-control" id="diy_villager_name" name="diy_villager_name" placeholder="Villager's Name" data-validation="2.2">
                                 </div>
                                 <div class="form-group">
-                                    <label for="diyItem">What Item is the Villager Making?</label>
-                                    <input type="text" class="form-control" id="diyItem" name="diyItem" placeholder="Item Name" data-validation="2.2">
+                                    <label for="diy_item">What Item is the Villager Making?</label>
+                                    <input type="text" class="form-control" id="diy_item" name="diy_item" placeholder="Item Name" data-validation="2.2">
                                 </div>
                                 <div class="form-group">
-                                    <label for="diyVillagerLocation">Approximately, Where is Your Villager Located?</label>
-                                    <input type="text" class="form-control" id="diyvillagerLocation" name="diyVillagerLocation" placeholder="Villager's Location" data-validation="4.3">
+                                    <label for="diy_villager_location">Approximately, Where is Your Villager Located?</label>
+                                    <input type="text" class="form-control" id="diy_villager_location" name="diy_villager_location" placeholder="Villager's Location" data-validation="4.3">
                                 </div>
                             </div>
                             <div id="hostReasonUniqueVisitor" class="hostOptionDetails">
                                 <div class="form-group">
-                                    <label for="uniqueVisitor">Which Unique Visitor is on Your Island?</label>
+                                    <label for="unique_visitor">Which Unique Visitor is on Your Island?</label>
                                     <span class="inputHint">
                                         <i class="fas fa-question-circle"></i>
                                         <span>Only 1 is supported at the moment.</span>
                                     </span>
                                     <div class="vh-inlineCheckboxes">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="uniqueVisitor" id="uniqueVisitorCeleste" value="celeste">
-                                            <label class="form-check-label" for="uniqueVisitorCeleste">Celeste</label>
+                                            <input class="form-check-input" type="radio" name="unique_visitor" id="unique_visitor_celeste" value="celeste">
+                                            <label class="form-check-label" for="unique_visitor_celeste">Celeste</label>
                                           </div>
                                           <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="uniqueVisitor" id="uniqueVisitorKicks" value="kicks">
-                                            <label class="form-check-label" for="uniqueVisitorKicks">Kicks</label>
+                                            <input class="form-check-input" type="radio" name="unique_visitor" id="unique_visitor_kicks" value="kicks">
+                                            <label class="form-check-label" for="unique_visitor_kicks">Kicks</label>
                                           </div>
                                           <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="uniqueVisitor" id="uniqueVisitorLief" value="lief">
-                                            <label class="form-check-label" for="uniqueVisitorLief">Lief</label>
+                                            <input class="form-check-input" type="radio" name="unique_visitor" id="unique_visitor_lief" value="lief">
+                                            <label class="form-check-label" for="unique_visitor_lief">Lief</label>
                                           </div>
                                           <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="uniqueVisitor" id="uniqueVisitorRedd" value="redd">
-                                            <label class="form-check-label" for="uniqueVisitorRedd">Redd</label>
+                                            <input class="form-check-input" type="radio" name="unique_visitor" id="unique_visitor_redd" value="redd">
+                                            <label class="form-check-label" for="unique_visitor_redd">Redd</label>
                                           </div>
                                           <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="uniqueVisitor" id="uniqueVisitorSaharah" value="saharah">
-                                            <label class="form-check-label" for="uniqueVisitorSaharah">Saharah</label>
+                                            <input class="form-check-input" type="radio" name="unique_visitor" id="unique_visitor_saharah" value="saharah">
+                                            <label class="form-check-label" for="unique_visitor_saharah">Saharah</label>
                                           </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="uniqueVisitorLocation">Approximately, Where is Your Visitor Located?</label>
-                                    <input type="text" class="form-control" id="uniqueVisitorLocation" name="uniqueVisitorLocation" placeholder="Visitor's Location">
+                                    <label for="unique_visitor_location">Approximately, Where is Your Visitor Located?</label>
+                                    <input type="text" class="form-control" id="unique_visitor_location" name="unique_visitor_location" placeholder="Visitor's Location" data-validation="4.3">
                                 </div>
                             </div>
                             <div class="row">
@@ -178,78 +153,78 @@
                             <div class="form-group">
                                 <label for="restriction_flowers" class="vh-labelInlineRadio">Pick Flowers</label>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_flowers" id="restriction_flowersNo" value="false" checked>
-                                    <label class="form-check-label" for="restriction_flowersNo">No</label>
+                                    <input class="form-check-input" type="radio" name="restriction_flowers" id="restriction_flowers_no" value="false" checked>
+                                    <label class="form-check-label" for="restriction_flowers_no">No</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_flowers" id="restriction_flowersYes" value="true">
-                                    <label class="form-check-label" for="restriction_flowersYes">Yes</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="restriction_flowers" class="vh-labelInlineRadio">Pick Fruit</label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_fruit" id="restriction_fruitNo" value="false" checked>
-                                    <label class="form-check-label" for="restriction_fruitNo">No</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_fruit" id="restriction_fruitYes" value="true">
-                                    <label class="form-check-label" for="restriction_fruitYes">Yes</label>
+                                    <input class="form-check-input" type="radio" name="restriction_flowers" id="restriction_flowers_yes" value="true">
+                                    <label class="form-check-label" for="restriction_flowers_yes">Yes</label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="restriction_flowers" class="vh-labelInlineRadio">Shake Trees</label>
+                                <label for="restriction_fruit" class="vh-labelInlineRadio">Pick Fruit</label>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_trees" id="restriction_treesNo" value="false" checked>
-                                    <label class="form-check-label" for="restriction_treesNo">No</label>
+                                    <input class="form-check-input" type="radio" name="restriction_fruit" id="restriction_fruit_no" value="false" checked>
+                                    <label class="form-check-label" for="restriction_fruit_no">No</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_trees" id="restriction_treesYes" value="true">
-                                    <label class="form-check-label" for="restriction_treesYes">Yes</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="restriction_flowers" class="vh-labelInlineRadio">Gather Shells</label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_shells" id="restriction_shellsNo" value="false" checked>
-                                    <label class="form-check-label" for="restriction_shellsNo">No</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_shells" id="restriction_shellsYes" value="true">
-                                    <label class="form-check-label" for="restriction_shellsYes">Yes</label>
+                                    <input class="form-check-input" type="radio" name="restriction_fruit" id="restriction_fruit_yes" value="true">
+                                    <label class="form-check-label" for="restriction_fruit_yes">Yes</label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="restriction_flowers" class="vh-labelInlineRadio">Catch Fish</label>
+                                <label for="restriction_trees" class="vh-labelInlineRadio">Shake Trees</label>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_fish" id="restriction_fishNo" value="false" checked>
-                                    <label class="form-check-label" for="restriction_fishNo">No</label>
+                                    <input class="form-check-input" type="radio" name="restriction_trees" id="restriction_trees_no" value="false" checked>
+                                    <label class="form-check-label" for="restriction_trees_no">No</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_fish" id="restriction_fishYes" value="true">
-                                    <label class="form-check-label" for="restriction_fishYes">Yes</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="restriction_flowers" class="vh-labelInlineRadio">Catch Bugs</label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_bugs" id="restriction_bugsNo" value="false" checked>
-                                    <label class="form-check-label" for="restriction_bugsNo">No</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_bugs" id="restriction_bugsYes" value="true">
-                                    <label class="form-check-label" for="restriction_bugsYes">Yes</label>
+                                    <input class="form-check-input" type="radio" name="restriction_trees" id="restriction_trees_yes" value="true">
+                                    <label class="form-check-label" for="restriction_trees_yes">Yes</label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="restriction_flowers" class="vh-labelInlineRadio">Post to Bulletin Board</label>
+                                <label for="restriction_shells" class="vh-labelInlineRadio">Gather Shells</label>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_board" id="restriction_boardNo" value="false" checked>
-                                    <label class="form-check-label" for="restriction_boardNo">No</label>
+                                    <input class="form-check-input" type="radio" name="restriction_shells" id="restriction_shells_no" value="false" checked>
+                                    <label class="form-check-label" for="restriction_shells_no">No</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="restriction_board" id="restriction_boardYes" value="true">
-                                    <label class="form-check-label" for="restriction_boardYes">Yes</label>
+                                    <input class="form-check-input" type="radio" name="restriction_shells" id="restriction_shells_yes" value="true">
+                                    <label class="form-check-label" for="restriction_shells_yes">Yes</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="restriction_fish" class="vh-labelInlineRadio">Catch Fish</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="restriction_fish" id="restriction_fish_no" value="false" checked>
+                                    <label class="form-check-label" for="restriction_fish_no">No</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="restriction_fish" id="restriction_fish_yes" value="true">
+                                    <label class="form-check-label" for="restriction_fish_yes">Yes</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="restriction_bugs" class="vh-labelInlineRadio">Catch Bugs</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="restriction_bugs" id="restriction_bugs_no" value="false" checked>
+                                    <label class="form-check-label" for="restriction_bugs_no">No</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="restriction_bugs" id="restriction_bugs_yes" value="true">
+                                    <label class="form-check-label" for="restriction_bugs_yes">Yes</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="restriction_bulletin_board" class="vh-labelInlineRadio">Post to Bulletin Board</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="restriction_bulletin_board" id="restriction_bulletin_board_no" value="false" checked>
+                                    <label class="form-check-label" for="restriction_bulletin_board_no">No</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="restriction_bulletin_board" id="restriction_bulletin_board_yes" value="true">
+                                    <label class="form-check-label" for="restriction_bulletin_board_yes">Yes</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -269,8 +244,8 @@
                                 <input type="text" class="form-control" id="wishlist" name="wishlist" placeholder="Wishlist Items" data-validation="4.3">
                             </div>
                             <div class="form-group">
-                                <label for="additionalDetails">Any Additional Details You'd Like to Provide</label>
-                                <input type="text" class="form-control" id="additionalDetails" name="additionalDetails" placeholder="Additional Details for Visitors" data-validation="4.3">
+                                <label for="additional_details">Any Additional Details You'd Like to Provide</label>
+                                <input type="text" class="form-control" id="additional_details" name="additional_details" placeholder="Additional Details for Visitors" data-validation="4.3">
                             </div>
                             <div class="row">
                                 <div class="col-6 text-left">
@@ -290,6 +265,7 @@
       </div>
     </div>
     <%- include('partials/scripts') %>
+    <script src="js/form.js"></script>
     <script src="js/hostIsland.js"></script>
   </body>
 </html>
