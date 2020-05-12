@@ -69,24 +69,20 @@ $(document).ready(function() {
     }
     
     const formData = pullFormData(ignoredFields);
-    console.log(formData);
     
-      const updateURL = '/api/hostIsland';
+    const updateURL = '/api/hostIsland';
       
-      /*$.ajax({
+      $.ajax({
         method: 'POST',
         url: updateURL,
-        data: hostIslandData
+        data: formData
       })
       .then(function(result){
         if(result.success == 1){
-          displaySuccessAlert(result.message);
-          $("form button").prop("disabled",true);
-          $(".hostIslandSteps").hide();
-          //let them click to view island
+            window.location = result.redirect
         }
-        else{
-          displayDangerAlert(result.message);
+        else if (result.success == 0){
+            displayDangerAlert(result.message);
         }
-      });*/
+      });
   }

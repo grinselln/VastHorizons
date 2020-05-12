@@ -6,3 +6,4 @@ mongoose.Promise = Promise;
 
 module.exports.User = require("./user");
 module.exports.Island = require("./island");
+module.exports.HostIsland = require("./hostIsland");

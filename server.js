@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const db = require('./models'); 
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -39,6 +40,25 @@ app.get('/island', (req, res) => {
 app.get('/hostIsland', isAuthenticated, (req, res) => {
   res.render("hostIsland.ejs", {user_id: req.session.userID, username: req.session.username, hasIsland: req.session.hasIsland});
 }); 
+
+app.get('/hostIslandSuccess', isAuthenticated, (req, res) => {
+  var hasHostedIsland;
+  db.HostIsland.exists({"discord_id": req.session.userID})
+    .then(function(foundIsland){
+      if(foundIsland){
+        hasHostedIsland = true;
+      }
+      else{
+        hasHostedIsland = false;
+      }
+      res.render("hostIslandSuccess.ejs", {user_id: req.session.userID, username: req.session.username, hasIsland: req.session.hasIsland, activeIsland: hasHostedIsland});
+    })
+    .catch(function(err){
+        console.log(err);
+        hasHostedIsland = -1;
+        res.render("hostIslandSuccess.ejs", {user_id: req.session.userID, username: req.session.username, hasIsland: req.session.hasIsland, activeIsland: hasHostedIsland});
+    })
+  }); 
 
 app.get('/hostedIslands', (req, res) => {
   res.render("hostedIslands.ejs", {user_id: req.session.userID, username: req.session.username, hasIsland: req.session.hasIsland});

@@ -98,7 +98,7 @@ function validateFormData(fieldValue, checkType){
             break;
         case "4.2":   //numbers/letters/symbols/spaces
             RegExpresion = /^[a-zA-Z0-9 ',.-]+$/;
-            alertMessage = "Please leave blank or only use lowercase letters, capital letters, numbers, spaces and the symbols , . ' - ";
+            alertMessage = "Please only use lowercase letters, capital letters, numbers, spaces and the symbols , . ' - ";
             break;
         case "4.3":   //numbers/letters/symbols/spaces or nothing
             RegExpresion = /^([a-zA-Z0-9 ',.-]+)?$/;
