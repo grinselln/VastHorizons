@@ -28,9 +28,9 @@ exports.getIsland = function(req, res){
 }
 
 exports.createIsland = function(req, res){
+    var validationResult = validation.validateFormData(req.body);
     var result;
-    var validationResult = validateIslandData(req, res);
-    console.log(req.body);
+
     if(validationResult.success == 0){
         res.status(200).json(validationResult);
     }else{
@@ -63,6 +63,7 @@ exports.createIsland = function(req, res){
 
 exports.updateIsland = function(req, res){
     var validationResult = validation.validateFormData(req.body);
+    var result;
 
     if(validationResult.success == 0){
         res.status(200).json(validationResult);

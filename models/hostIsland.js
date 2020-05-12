@@ -1,21 +1,13 @@
 var mongoose = require('mongoose');
 
-var islandSchema = new mongoose.Schema({
+var hostIslandSchema = new mongoose.Schema({
     discord_id: {
         type: String,
         required: 'discord id is needed!'
     },
-    island_code: {
-        type: String,
-        required: 'island code is needed!',
-    },
-    island_date_time: {
+    date_created: {
         type: Date,
         default: Date.now
-    },
-    island_closed: {
-        type: Boolean,
-        default: 0
     },
     dodo_code: {
         type: String,
@@ -38,21 +30,13 @@ var islandSchema = new mongoose.Schema({
             type: Number,
             default: 0
         },
-        close_queue_maxed: {
-            type: Boolean,
-            default: true
-        },
-        queue_is_closed: {
+        closed_queue: {
             type: Boolean,
             default: false
         },
         queue_timeout: {
             type: Number,
             default: 5 /*minutes*/
-        },
-        visit_length: {
-            type: Number,
-            default: 10 /*minutes*/
         },
     },
     host_clothes: {
@@ -84,7 +68,7 @@ var islandSchema = new mongoose.Schema({
                 type: String,
                 //required: "villager name is needed!"
             },
-            villager_location: {
+            visitor_location: {
                 type: String
             },
         },
@@ -124,6 +108,6 @@ var islandSchema = new mongoose.Schema({
     }
 });
 
-var Island = mongoose.model('islands', islandSchema);
+var HostIsland = mongoose.model('hostedislands', hostIslandSchema);
 
-module.exports = Island;
+module.exports = HostIsland;

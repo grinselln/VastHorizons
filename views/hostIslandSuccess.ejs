@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+                <% if(activeIsland == true) { %>
+                    You Are Successfully Hosting Your Island!
+                <% }
+                else if(activeIsland == false) { %>
+                    You Are Not Currently Hosting Your Island.
+                <% } 
+                else { %>
+                    There Was An Error Checking For Your Island.
+                <% } %>
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                <div class="alert alert-success" role="alert" style="display: none">
+                  <span id="alertMessage"></span>
+                  <button type="button" class="close" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div id="island_display">
+                    <% if(activeIsland == true) { %>
+                        <%- include('partials/hostIslandSuccess/success') %>
+                    <% }
+                    else if(activeIsland == false) { %>
+                        <%- include('partials/hostIslandSuccess/notFound') %>
+                    <% } 
+                    else { %>
+                        <%- include('partials/hostIslandSuccess/error') %>
+                    <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/scripts') %>
+    <script src="js/form.js"></script>
+    <script src="js/island.js"></script>
+  </body>
+</html>
